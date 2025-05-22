@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations - Wanderlust</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Additional styles specific to destinations page */
+        .hero-destinations {
+            height: 60vh;
+            min-height: 400px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg');
+        }
+        
+        .filter-bar {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .filter-item {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .filter-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .filter-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--color-gray-300);
+            border-radius: 0.25rem;
+        }
+
+        .destination-count {
+            margin-bottom: 1rem;
+            color: var(--color-gray-600);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">Wanderlust</div>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="/destinations" class="nav-link active">Destinations</a></li>
+                    <li class="nav-item"><a href="/packages" class="nav-link">Packages</a></li>
+                    <li class="nav-item"><a href="/about" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero hero-destinations">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Explore Our Destinations</h1>
+                <p>Discover incredible places and create unforgettable memories around the world.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Content -->
+    <section class="section">
+        <div class="container">
+            <!-- Filter Bar -->
+            <div class="filter-bar animate-on-scroll">
+                <div class="filter-item">
+                    <label for="continent" class="filter-label">Continent</label>
+                    <select id="continent" class="filter-select">
+                        <option value="">All Continents</option>
+                        <option value="dubai">Dubai</option>
+                        <option value="vietnam">Vietnam</option>
+                        <option value="kashmir">Kashmir</option>
+                        <option value="ooty">Ooty & kodaikanal</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Thailand">Thailand</option>
+                    </select>
+                </div>
+                
+                <div class="filter-item">
+                    <label for="budget" class="filter-label">Budget</label>
+                    <select id="budget" class="filter-select">
+                        <option value="">Any Budget</option>
+                        <option value="budget">Budget ($0-$999)</option>
+                        <option value="mid-range">Mid-range ($1000-$1999)</option>
+                        <option value="luxury">Luxury ($2000+)</option>
+                    </select>
+                </div>
+                
+                <div class="filter-item">
+                    <label for="activity" class="filter-label">Activity</label>
+                    <select id="activity" class="filter-select">
+                        <option value="">All Activities</option>
+                        <option value="beach">Beaches</option>
+                        <option value="hiking">Hiking</option>
+                        <option value="cultural">Cultural Sites</option>
+                        <option value="wildlife">Wildlife</option>
+                        <option value="urban">Urban Exploration</option>
+                    </select>
+                </div>
+                
+                <div class="filter-item">
+                    <label for="sort" class="filter-label">Sort By</label>
+                    <select id="sort" class="filter-select">
+                        <option value="popular">Most Popular</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="destination-count animate-on-scroll">Showing 12 destinations</div>
+            
+            <!-- Destinations Grid -->
+            <div class="grid">
+                <!-- First row destinations (same as home page) -->
+                <div class="destination-card animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/3214958/pexels-photo-3214958.jpeg" alt="Dubai" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Dubai</h3>
+                        <div class="card-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>6N/7D</span>
+                        </div>
+                        <p class="card-description">Golden sands, sparkling lights, and endless dreams — welcome to magical Dubai!</p>
+                        <div class="card-footer">
+                            <div class="card-price">Starting From 56000PP </div>
+                            <div class="card-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/2166559/pexels-photo-2166559.jpeg" alt="Bali, Indonesia" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Bali, Indonesia</h3>
+                        <div class="card-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Southeast Asia</span>
+                        </div>
+                        <p class="card-description">Discover tropical beaches, lush rice terraces, and spiritual temples in this island paradise.</p>
+                        <div class="card-footer">
+                            <div class="card-price">From $899</div>
+                            <div class="card-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/64271/queen-of-liberty-statue-of-liberty-new-york-liberty-statue-64271.jpeg" alt="New York, USA" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">New York, USA</h3>
+                        <div class="card-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>North America</span>
+                        </div>
+                        <p class="card-description">Experience the vibrant energy, iconic landmarks, and cultural diversity of the Big Apple.</p>
+                        <div class="card-footer">
+                            <div class="card-price">From $1,199</div>
+                            <div class="card-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional destinations -->
+                <div class="destination-card animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg" alt="Paris, France" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Paris, France</h3>
+                        <div class="card-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Europe</span>
+                        </div>
+                        <p class="card-description">Explore the city of love with its iconic Eiffel Tower, world-class museums, and charming cafés.</p>
+                        <div class="card-footer">
+                            <div class="card-price">From $1,099</div>
+                            <div class="card-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/699466/pexels-photo-699466.jpeg" alt="Rome, Italy" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Rome, Italy</h3>
+                        <div class="card-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Europe</span>
+                        </div>
+                        <p class="card-description">Immerse yourself in ancient history, remarkable architecture, and delicious Italian cuisine.</p>
+                        <div class="card-footer">
+                            <div class="card-price">From $1,149</div>
+                            <div class="card-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/1486222/pexels-photo-1486222.jpeg" alt="Marrakech, Morocco" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Marrakech, Morocco</h3>
+                        <div class="card-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Africa</span>
+                        </div>
+                        <p class="card-description">Experience the vibrant colors, exotic spices, and rich cultural heritage of this North African gem.</p>
+                        <div class="card-footer">
+                            <div class="card-price">From $849</div>
+                            <div class="card-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.6</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/1682748/pexels-photo-1682748.jpeg" alt="Sydney, Australia" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Sydney, Australia</h3>
+                        <div class="card-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Oceania</span>
+                        </div>
+                        <p class="card-description">Discover iconic landmarks, beautiful beaches, and a vibrant cultural scene in this harbor city.</p>
+                        <div class="card-footer">
+                            <div class="card-price">From $1,499</div>
+                            <div class="card-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/3581368/pexels-photo-3581368.jpeg" alt="Reykjavik, Iceland" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Reykjavik, Iceland</h3>
+                        <div class="card-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Europe</span>
+                        </div>
+                        <p class="card-description">Experience the land of fire and ice with its stunning natural wonders and unique landscapes.</p>
+                        <div class="card-footer">
+                            <div class="card-price">From $1,349</div>
+                            <div class="card-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg" alt="Bangkok, Thailand" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Bangkok, Thailand</h3>
+                        <div class="card-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Southeast Asia</span>
+                        </div>
+                        <p class="card-description">Explore the vibrant street life, ornate temples, and delicious cuisine of Thailand's capital.</p>
+                        <div class="card-footer">
+                            <div class="card-price">From $799</div>
+                            <div class="card-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.6</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/2519217/pexels-photo-2519217.jpeg" alt="Rio de Janeiro, Brazil" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Rio de Janeiro, Brazil</h3>
+                        <div class="card-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>South America</span>
+                        </div>
+                        <p class="card-description">Experience the vibrant culture, iconic beaches, and breathtaking mountain views of this Brazilian city.</p>
+                        <div class="card-footer">
+                            <div class="card-price">From $1,099</div>
+                            <div class="card-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/416024/pexels-photo-416024.jpeg" alt="Dubai, UAE" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Dubai, UAE</h3>
+                        <div class="card-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Middle East</span>
+                        </div>
+                        <p class="card-description">Marvel at futuristic architecture, luxury shopping, and desert adventures in this modern metropolis.</p>
+                        <div class="card-footer">
+                            <div class="card-price">From $1,299</div>
+                            <div class="card-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/3722818/pexels-photo-3722818.jpeg" alt="Cape Town, South Africa" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Cape Town, South Africa</h3>
+                        <div class="card-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Africa</span>
+                        </div>
+                        <p class="card-description">Discover stunning beaches, Table Mountain views, and rich cultural experiences in this coastal gem.</p>
+                        <div class="card-footer">
+                            <div class="card-price">From $1,099</div>
+                            <div class="card-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <div class="pagination" style="display: inline-flex; gap: 0.5rem;">
+                    <a href="#" style="padding: 0.5rem 1rem; border: 1px solid var(--color-gray-300); border-radius: 0.25rem; color: var(--color-gray-700);">1</a>
+                    <a href="#" style="padding: 0.5rem 1rem; border: 1px solid var(--color-gray-300); border-radius: 0.25rem; color: var(--color-gray-700);">2</a>
+                    <a href="#" style="padding: 0.5rem 1rem; border: 1px solid var(--color-gray-300); border-radius: 0.25rem; color: var(--color-gray-700);">3</a>
+                    <span style="padding: 0.5rem 1rem; color: var(--color-gray-700);">...</span>
+                    <a href="#" style="padding: 0.5rem 1rem; border: 1px solid var(--color-gray-300); border-radius: 0.25rem; color: var(--color-gray-700);">8</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2>Not Finding What You're Looking For?</h2>
+                <p>Contact our travel experts and we'll help you design a custom travel experience that's perfect for you.</p>
+                <a href="/contact" class="btn btn-accent">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">Wanderlust</div>
+                    <p class="footer-description">Discover the world with us. We provide unforgettable travel experiences to destinations worldwide.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Destinations</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Europe</a></li>
+                        <li class="footer-link"><a href="#">Asia</a></li>
+                        <li class="footer-link"><a href="#">Africa</a></li>
+                        <li class="footer-link"><a href="#">North America</a></li>
+                        <li class="footer-link"><a href="#">South America</a></li>
+                        <li class="footer-link"><a href="#">Oceania</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Company</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">About Us</a></li>
+                        <li class="footer-link"><a href="#">Careers</a></li>
+                        <li class="footer-link"><a href="#">Blog</a></li>
+                        <li class="footer-link"><a href="#">Press</a></li>
+                        <li class="footer-link"><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Support</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Contact Us</a></li>
+                        <li class="footer-link"><a href="#">FAQs</a></li>
+                        <li class="footer-link"><a href="#">Privacy Policy</a></li>
+                        <li class="footer-link"><a href="#">Terms of Service</a></li>
+                        <li class="footer-link"><a href="#">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wanderlust. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        // Destination filtering (UI only - no actual filtering)
+        const filterElements = document.querySelectorAll('.filter-select');
+        filterElements.forEach(filter => {
+            filter.addEventListener('change', () => {
+                // In a real app, this would filter the destinations
+                // For this demo, we'll just show an alert
+                alert('Filtering has been applied (UI demo only)');
+            });
+        });
+    </script>
+</body>
+</html>

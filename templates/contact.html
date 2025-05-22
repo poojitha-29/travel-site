@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Wanderlust</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Additional styles specific to contact page */
+        .hero-contact {
+            height: 50vh;
+            min-height: 300px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/821754/pexels-photo-821754.jpeg');
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .info-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-icon {
+            flex-shrink: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: var(--color-primary-light);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .info-text h3 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .info-text p {
+            color: var(--color-gray-600);
+        }
+        
+        .contact-hours {
+            margin-top: 2rem;
+        }
+        
+        .hours-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hours-list {
+            list-style: none;
+        }
+        
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: var(--color-gray-600);
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--color-gray-300);
+            border-radius: 0.25rem;
+            font-family: inherit;
+            font-size: inherit;
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            width: 100%;
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-top: 3rem;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">Wanderlust</div>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="/destinations" class="nav-link">Destinations</a></li>
+                    <li class="nav-item"><a href="/packages" class="nav-link">Packages</a></li>
+                    <li class="nav-item"><a href="/about" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="/contact" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero hero-contact">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Contact Us</h1>
+                <p>Get in touch with our travel experts for personalized assistance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info animate-on-scroll">
+                    <h2 class="info-title">Get In Touch</h2>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Our Location</h3>
+                            <p>123 Adventure Street, Traveltown<br>CA 94103, United States</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Phone Number</h3>
+                            <p>+1 (555) 123-4567</p>
+                            <p>+1 (555) 765-4321</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Email Address</h3>
+                            <p>info@wanderlust.com</p>
+                            <p>support@wanderlust.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-hours">
+                        <h3 class="hours-title">Office Hours</h3>
+                        <ul class="hours-list">
+                            <li class="hours-item">
+                                <span>Monday - Friday:</span>
+                                <span>9:00 AM - 6:00 PM</span>
+                            </li>
+                            <li class="hours-item">
+                                <span>Saturday:</span>
+                                <span>10:00 AM - 4:00 PM</span>
+                            </li>
+                            <li class="hours-item">
+                                <span>Sunday:</span>
+                                <span>Closed</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h3 class="hours-title">Follow Us</h3>
+                        <div class="social-links" style="margin-top: 0.5rem;">
+                            <a href="#" class="social-link" style="background-color: var(--color-primary-light);"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link" style="background-color: var(--color-primary-light);"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link" style="background-color: var(--color-primary-light);"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link" style="background-color: var(--color-primary-light);"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form animate-on-scroll">
+                    <h2 class="form-title">Send Us a Message</h2>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <select id="subject" name="subject" class="form-select" required>
+                                <option value="">Select a subject</option>
+                                <option value="booking">Booking Inquiry</option>
+                                <option value="destination">Destination Information</option>
+                                <option value="package">Package Details</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" name="message" class="form-textarea" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Map -->
+            <div class="map-container animate-on-scroll">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.98555098464!2d-122.50764017068871!3d37.75781499635917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1634223535463!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section about-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Frequently Asked Questions</h2>
+            <p class="section-subtitle animate-on-scroll">Find answers to common questions about our services</p>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="margin-bottom: 2rem;" class="animate-on-scroll">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-primary);">How do I book a trip?</h3>
+                    <p>You can book a trip by browsing our destinations, selecting your preferred package, and following the booking process on our website. Alternatively, you can contact our travel experts who will assist you with the booking process.</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;" class="animate-on-scroll">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-primary);">What payment methods do you accept?</h3>
+                    <p>We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers. For certain destinations, we also offer payment plans.</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;" class="animate-on-scroll">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-primary);">Can I customize a tour package?</h3>
+                    <p>Yes, we offer customization options for most of our tour packages. Please contact our travel consultants with your specific requirements, and we'll create a personalized itinerary for you.</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;" class="animate-on-scroll">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-primary);">What is your cancellation policy?</h3>
+                    <p>Our cancellation policy varies depending on the package and destination. Generally, cancellations made 30 days or more before departure receive a full refund minus a small administrative fee. For detailed information, please refer to the terms and conditions of your specific booking.</p>
+                </div>
+                
+                <div class="animate-on-scroll">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-primary);">Do you offer travel insurance?</h3>
+                    <p>While we don't provide travel insurance directly, we strongly recommend purchasing comprehensive travel insurance for your trip. We can suggest reliable insurance providers that offer coverage suitable for your journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2>Ready to Start Planning Your Trip?</h2>
+                <p>Browse our selection of destinations and packages to find your perfect adventure.</p>
+                <a href="/destinations" class="btn btn-accent">Explore Destinations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">Wanderlust</div>
+                    <p class="footer-description">Discover the world with us. We provide unforgettable travel experiences to destinations worldwide.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Destinations</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Europe</a></li>
+                        <li class="footer-link"><a href="#">Asia</a></li>
+                        <li class="footer-link"><a href="#">Africa</a></li>
+                        <li class="footer-link"><a href="#">North America</a></li>
+                        <li class="footer-link"><a href="#">South America</a></li>
+                        <li class="footer-link"><a href="#">Oceania</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Company</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">About Us</a></li>
+                        <li class="footer-link"><a href="#">Careers</a></li>
+                        <li class="footer-link"><a href="#">Blog</a></li>
+                        <li class="footer-link"><a href="#">Press</a></li>
+                        <li class="footer-link"><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Support</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Contact Us</a></li>
+                        <li class="footer-link"><a href="#">FAQs</a></li>
+                        <li class="footer-link"><a href="#">Privacy Policy</a></li>
+                        <li class="footer-link"><a href="#">Terms of Service</a></li>
+                        <li class="footer-link"><a href="#">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wanderlust. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        // Contact form handling
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // In a real app, this would submit to a backend
+                // For now, we'll just show an alert
+                alert('Thank you for your message! We will get back to you soon. (This is just a UI demo)');
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Wanderlust</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Additional styles specific to about page */
+        .hero-about {
+            height: 60vh;
+            min-height: 400px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.pexels.com/photos/2245436/pexels-photo-2245436.png');
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--color-primary-light);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 3rem;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid var(--color-primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item.left {
+            left: 0;
+        }
+        
+        .timeline-item.right {
+            left: 50%;
+        }
+        
+        .timeline-item.right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: var(--shadow);
+        }
+        
+        .timeline-year {
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .team-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .team-content {
+            padding: 1.5rem;
+        }
+        
+        .team-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-role {
+            color: var(--color-gray-600);
+            margin-bottom: 1rem;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .team-social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            background-color: var(--color-gray-100);
+            color: var(--color-gray-700);
+            border-radius: 50%;
+            transition: var(--transition-base);
+        }
+        
+        .team-social-link:hover {
+            background-color: var(--color-primary);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            color: var(--color-gray-700);
+        }
+        
+        @media (max-width: 992px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item.right {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+                right: auto;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">Wanderlust</div>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="/destinations" class="nav-link">Destinations</a></li>
+                    <li class="nav-item"><a href="/packages" class="nav-link">Packages</a></li>
+                    <li class="nav-item"><a href="/about" class="nav-link active">About Us</a></li>
+                    <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero hero-about">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>About Wanderlust</h1>
+                <p>We're passionate about creating unforgettable travel experiences for adventurers around the world.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Our Story</h2>
+            <p class="section-subtitle animate-on-scroll">From a small dream to a global travel company</p>
+            
+            <div class="timeline">
+                <div class="timeline-item left animate-on-scroll">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3>Our Beginning</h3>
+                        <p>Wanderlust was founded by a group of passionate travelers who wanted to share their love for exploration with others. Starting with just 3 employees, we organized small group tours to Southeast Asia.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right animate-on-scroll">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3>Expanding Horizons</h3>
+                        <p>After successful tours in Southeast Asia, we expanded our destinations to include Europe and South America. Our team grew to 15 dedicated travel experts.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left animate-on-scroll">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h3>Digital Transformation</h3>
+                        <p>We launched our online booking platform, making it easier for travelers to discover and book their dream vacations. This innovation helped us reach a global audience.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right animate-on-scroll">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <h3>Where We Are Today</h3>
+                        <p>Today, Wanderlust offers tours to over 50 countries across 6 continents. We've helped more than 10,000 travelers create unforgettable memories, and we continue to grow with a focus on sustainable and authentic travel experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Values -->
+    <section class="section about-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Our Mission & Values</h2>
+            <p class="section-subtitle animate-on-scroll">What drives us and shapes our approach to travel</p>
+            
+            <div class="about-grid">
+                <div class="about-content animate-on-scroll">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-primary);">Our Mission</h3>
+                    <p>To inspire and enable meaningful connections through travel, creating experiences that transform perspectives and enrich lives.</p>
+                    
+                    <h3 style="font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--color-primary);">Our Values</h3>
+                    
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Authenticity</h4>
+                                <p>We believe in real experiences that showcase the true essence of a destination.</p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Responsibility</h4>
+                                <p>We're committed to sustainable practices that respect local communities and environments.</p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Passion</h4>
+                                <p>Our love for travel drives everything we do, from planning to execution.</p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Community</h4>
+                                <p>We foster connections between travelers and the places they visit.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="about-img animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/2422265/pexels-photo-2422265.jpeg" alt="Our Mission">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">10k+</div>
+                    <div class="stat-label">Happy Travelers</div>
+                </div>
+                
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Tours Completed</div>
+                </div>
+                
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Travel Experts</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Meet Our Team</h2>
+            <p class="section-subtitle animate-on-scroll">The passionate people behind Wanderlust</p>
+            
+            <div class="team-grid">
+                <div class="team-member animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg" alt="Alex Thompson" class="team-img">
+                    <div class="team-content">
+                        <h3 class="team-name">Alex Thompson</h3>
+                        <div class="team-role">Founder & CEO</div>
+                        <p>With over 15 years of travel experience across 70 countries, Alex founded Wanderlust to share his passion for exploration.</p>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg" alt="Maya Rodriguez" class="team-img">
+                    <div class="team-content">
+                        <h3 class="team-name">Maya Rodriguez</h3>
+                        <div class="team-role">Head of Operations</div>
+                        <p>Maya ensures all our tours run smoothly, from initial planning to on-the-ground execution.</p>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg" alt="David Chen" class="team-img">
+                    <div class="team-content">
+                        <h3 class="team-name">David Chen</h3>
+                        <div class="team-role">Head of Experiences</div>
+                        <p>David's specialty is discovering unique local experiences that make our tours truly unforgettable.</p>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg" alt="Sarah Johnson" class="team-img">
+                    <div class="team-content">
+                        <h3 class="team-name">Sarah Johnson</h3>
+                        <div class="team-role">Customer Experience</div>
+                        <p>Sarah ensures every traveler receives personalized attention and exceptional service.</p>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2>Ready to Start Your Adventure?</h2>
+                <p>Browse our destinations and packages to find your perfect trip.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="/destinations" class="btn btn-accent">Explore Destinations</a>
+                    <a href="/contact" class="btn btn-outline" style="background-color: transparent; color: white; border-color: white;">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">Wanderlust</div>
+                    <p class="footer-description">Discover the world with us. We provide unforgettable travel experiences to destinations worldwide.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Destinations</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Europe</a></li>
+                        <li class="footer-link"><a href="#">Asia</a></li>
+                        <li class="footer-link"><a href="#">Africa</a></li>
+                        <li class="footer-link"><a href="#">North America</a></li>
+                        <li class="footer-link"><a href="#">South America</a></li>
+                        <li class="footer-link"><a href="#">Oceania</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Company</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">About Us</a></li>
+                        <li class="footer-link"><a href="#">Careers</a></li>
+                        <li class="footer-link"><a href="#">Blog</a></li>
+                        <li class="footer-link"><a href="#">Press</a></li>
+                        <li class="footer-link"><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Support</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Contact Us</a></li>
+                        <li class="footer-link"><a href="#">FAQs</a></li>
+                        <li class="footer-link"><a href="#">Privacy Policy</a></li>
+                        <li class="footer-link"><a href="#">Terms of Service</a></li>
+                        <li class="footer-link"><a href="#">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wanderlust. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
