@@ -26,7 +26,7 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             <a href="#" className="flex items-center space-x-2 text-2xl font-bold text-blue-900">
-  <img src="sangeethalogo-removebg-preview (1).png"alt="Logo" className="h-12 w-12 object-contain" />
+  <img src="/sangeethalogo-removebg-preview (1).png"alt="Logo" className="h-12 w-12 object-contain" />
   <span>Sangeetha Holidays Pvt Ltd</span>
 </a>
 
@@ -39,6 +39,17 @@ function App() {
                 <li><a href="#packages" className="text-blue-900 hover:text-blue-700 font-medium">Packages</a></li>
                 <li><a href="#about" className="text-blue-900 hover:text-blue-700 font-medium">About</a></li>
                 <li><a href="#contact" className="text-blue-900 hover:text-blue-700 font-medium">Contact</a></li>
+                <li>
+  <a
+    href="https://preview--flight-horizon-reminders.lovable.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-blue-900 hover:text-blue-700 font-medium"
+  >
+    Quick Links 🔒
+  </a>
+</li>
+
               </ul>
             </nav>
 
@@ -62,6 +73,17 @@ function App() {
               <li><a href="#packages" className="block px-4 py-3 text-blue-900 hover:bg-blue-50">Packages</a></li>
               <li><a href="#about" className="block px-4 py-3 text-blue-900 hover:bg-blue-50">About</a></li>
               <li><a href="#contact" className="block px-4 py-3 text-blue-900 hover:bg-blue-50">Contact</a></li>
+              <li>
+  <a
+    href="https://preview--flight-horizon-reminders.lovable.app"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block px-4 py-3 text-blue-900 hover:bg-blue-50"
+  >
+    Quick Links 🔒
+  </a>
+</li>
+
             </ul>
           </nav>
         )}
@@ -390,105 +412,105 @@ const features = [
 
 const gallery = [
   {
-    url: "WhatsApp Image 2025-04-13 at 11.39.37_e8487b45.jpg",
+    url: "/WhatsApp Image 2025-04-13 at 11.39.37_e8487b45.jpg",
     location: "",
     description: ""
   },
    {
-    url: "WhatsApp Image 2025-05-22 at 13.17.01_33ac5032.jpg",
+    url: "/WhatsApp Image 2025-05-22 at 13.17.01_33ac5032.jpg",
     location: "",
     description: ""
   },
  
   {
-    url: "WhatsApp Image 2025-04-13 at 11.39.38_abcd911b.jpg",
+    url: "/WhatsApp Image 2025-04-13 at 11.39.38_abcd911b.jpg",
     location: "",
     description: ""
   },
   {
-    url: "WhatsApp Image 2025-04-13 at 11.39.39_0c92d2fe.jpg",
+    url: "/WhatsApp Image 2025-04-13 at 11.39.39_0c92d2fe.jpg",
     location: "",
     description: ""
   },
   {
-    url: "WhatsApp Image 2025-04-13 at 11.39.39_75bd6785.jpg",
+    url: "/WhatsApp Image 2025-04-13 at 11.39.39_75bd6785.jpg",
     location: "",
     description: ""
   },
   {
-    url: "WhatsApp Image 2025-04-13 at 11.39.40_c4b32e07.jpg",
+    url: "//WhatsApp Image 2025-04-13 at 11.39.40_c4b32e07.jpg",
     location: "",
     description: ""
   },
    {
-    url: "WhatsApp Image 2025-04-13 at 11.39.44_0c7796d0.jpg",
+    url: "/WhatsApp Image 2025-04-13 at 11.39.44_0c7796d0.jpg",
     location: "",
     description: ""
   },
   {
-    url: "WhatsApp Image 2025-04-13 at 11.39.49_f1a472bd.jpg",
+    url: "/WhatsApp Image 2025-04-13 at 11.39.49_f1a472bd.jpg",
     location: "",
     description: ""
   },
   {
-    url: "WhatsApp Image 2025-04-13 at 11.39.49_a176d5bb.jpg",
+    url: "/WhatsApp Image 2025-04-13 at 11.39.49_a176d5bb.jpg",
     location: "",
     description: ""
   },
   {
-    url: "WhatsApp Image 2025-04-13 at 11.39.47_c3236055.jpg",
+    url: "/WhatsApp Image 2025-04-13 at 11.39.47_c3236055.jpg",
     location: "",
     description: ""
   },
    {
-    url: "WhatsApp Image 2025-04-13 at 11.39.48_d25f4b2e.jpg",
+    url: "/WhatsApp Image 2025-04-13 at 11.39.48_d25f4b2e.jpg",
     location: "",
     description: ""
   },
    {
-    url: "WhatsApp Image 2025-04-13 at 11.39.47_b6a1f470.jpg",
+    url: "/WhatsApp Image 2025-04-13 at 11.39.47_b6a1f470.jpg",
     location: "",
     description: ""
   },
 
    {
-    url: "WhatsApp Image 2025-04-13 at 11.39.47_2263f2ce.jpg",
+    url: "/WhatsApp Image 2025-04-13 at 11.39.47_2263f2ce.jpg",
     location: "",
     description: ""
   },
   {
-    url: "WhatsApp Image 2025-04-13 at 11.39.46_d10d43be.jpg",
+    url: "/WhatsApp Image 2025-04-13 at 11.39.46_d10d43be.jpg",
     location: "",
     description: ""
   },
    {
-    url: "WhatsApp Image 2025-04-13 at 11.39.45_073c2bbd.jpg",
+    url: "/WhatsApp Image 2025-04-13 at 11.39.45_073c2bbd.jpg",
     location: "",
     description: ""
   },
  {
-    url: "WhatsApp Image 2025-04-13 at 11.39.44_41987578.jpg",
+    url: "/WhatsApp Image 2025-04-13 at 11.39.44_41987578.jpg",
     location: "",
     description: ""
   },
   {
-    url: "WhatsApp Image 2025-04-13 at 11.39.44_0c7796d0.jpg",
+    url: "/WhatsApp Image 2025-04-13 at 11.39.44_0c7796d0.jpg",
     location: "",
     description: ""
   },
    {
-    url: "WhatsApp Image 2025-04-13 at 11.39.38_522483ee.jpg",
+    url: "/WhatsApp Image 2025-04-13 at 11.39.38_522483ee.jpg",
     location: "",
     description: ""
   },
  
    {
-    url: "WhatsApp Image 2025-05-22 at 13.17.02_367f1450.jpg",
+    url: "/WhatsApp Image 2025-05-22 at 13.17.02_367f1450.jpg",
     location: "",
     description: ""
   },
    {
-    url: "WhatsApp Image 2025-05-22 at 13.17.02_f7a2841a.jpg",
+    url: "/WhatsApp Image 2025-05-22 at 13.17.02_f7a2841a.jpg",
     location: "",
     description: ""
   }
@@ -496,22 +518,22 @@ const gallery = [
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    destination: "Greece",
-    comment: "The trip to Santorini exceeded all my expectations. The accommodations were perfect and the local experiences were unforgettable!",
-    image: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg"
+    name: "Ananth",
+    destination: "Hyderabad",
+    comment: "We went to Andaman in March 9th... we spent four days...we enjoyed a lot..receiving and pick up is very nice..we suggest this tours and travels like honeymoon and family trips..facilities are very good..Accommodation and hotels are fine. More over, we are planning another trip with same travels.",
+    image: "https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
   },
   {
-    name: "Michael Chen",
-    destination: "Japan",
-    comment: "An incredible journey through Japan's culture and traditions. The attention to detail in planning made everything seamless.",
-    image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
+    name: "G.s.sriharsha",
+    destination: "Hyderabad",
+    comment: "We travelled to Malaysia trip planned by Sangeeta Tours in the mid of September. That was a very well organized trip and he was always ready on call to help anytime. Best Experience, will definitely plan with him again in the future..",
+    image: "https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
   },
   {
-    name: "Emily Rodriguez",
-    destination: "Peru",
-    comment: "Machu Picchu was breathtaking! The guides were knowledgeable and the entire experience was well-organized.",
-    image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
+    name: "MSN Murthy",
+    destination: "Ananthapur",
+    comment: "went to Australia from May 3 to 27 th May to Melbourne, Sydney and Brisbane. Booked through Sangeetha travels. Value for Money. All 4 star hotels and Indian food arrangment. very well Satisfied.",
+    image: "https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
   }
 ];
 
