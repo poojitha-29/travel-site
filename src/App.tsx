@@ -40,14 +40,43 @@ function App() {
                 <li><a href="#about" className="text-blue-900 hover:text-blue-700 font-medium">About</a></li>
                 <li><a href="#contact" className="text-blue-900 hover:text-blue-700 font-medium">Contact</a></li>
                 <li>
-  <a
-    href="https://preview--flight-horizon-reminders.lovable.app/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-blue-900 hover:text-blue-700 font-medium"
+<div className="relative text-blue-900 font-medium">
+  <button
+    onClick={() => {
+      const el = document.getElementById('quickLinksMenu');
+      if (el) el.classList.toggle('hidden');
+    }}
+    className="hover:text-blue-700 focus:outline-none"
   >
     Quick Links 🔒
-  </a>
+  </button>
+
+  <div id="quickLinksMenu" className="mt-2 hidden">
+    <div>
+      <a
+        href="https://preview--flight-horizon-reminders.lovable.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block hover:text-blue-700"
+      >
+        Flight Reminder App
+      </a>
+    </div>
+    <div>
+      <a
+        href="https://sangeethaholidayspvtltd.netlify.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block hover:text-blue-700"
+      >
+        Specially Curated for Starhealth
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
 </li>
 
               </ul>
