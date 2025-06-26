@@ -1,6 +1,9 @@
 import { Menu, X, Search } from 'lucide-react';
 import { useState } from 'react';
 import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Chatbot from './Components/Chatbot';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -207,7 +210,7 @@ function App() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-white">
+      <section id="testimonials" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-4">What Our Travelers Say</h2>
           <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
@@ -358,6 +361,7 @@ function App() {
       <p>&copy; 2025 Sangeetha Holidays. All rights reserved.</p>
     </div>
   </div>
+  <Chatbot />
 </footer>
 
 
@@ -565,5 +569,7 @@ const testimonials = [
     image: "https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
   }
 ];
+
+
 
 export default App;
