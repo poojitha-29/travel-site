@@ -1,9 +1,9 @@
 import { Menu, X, Search } from 'lucide-react';
-import { useState } from 'react';
 import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Chatbot from './Components/Chatbot';
+import { useEffect, useState } from 'react';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,6 +21,18 @@ function App() {
     Date: ${searchQuery.date}
     Travelers: ${searchQuery.travelers}`);
   };
+
+    const heroImages = [ "https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg","https://discoveryourvietnam.com/wp-content/uploads/2022/10/Trang_An_Boat_Trip.jpg","https://weddingplanningconference.com/blog/wp-content/uploads/2022/09/Udaipur-1.jpg","https://wallpapercave.com/wp/wp2874386.jpg" , "https://cdn.wallpapersafari.com/78/25/JU9bGD.jpg", "https://e1.pxfuel.com/desktop-wallpaper/483/435/desktop-wallpaper-varanasi-banaras.jpg"
+];
+  const [heroIndex, setHeroIndex] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setHeroIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+  }, 3000); // change every 3 seconds
+
+  return () => clearInterval(interval);
+}, []);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -121,17 +133,20 @@ function App() {
         )}
       </header>
 
+
+
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center text-white">
-        
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url("https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg")',
-          }}
-        >
-          <div className="absolute inset-0 bg-black/40"></div>
-        </div>
+      
+
+ <div
+    className="absolute inset-0 bg-cover bg-center transition-all duration-1000"
+    style={{
+      backgroundImage: `url(${heroImages[heroIndex]})`,
+    }}
+  >
+    <div className="absolute inset-0 bg-black/40"></div>
+  </div>
         
         <div className="relative container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Discover Your Next Adventure</h1>
