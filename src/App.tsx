@@ -123,6 +123,7 @@ function App() {
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center text-white">
+        
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -144,9 +145,20 @@ function App() {
           
         </div>
       </section>
+      <div className="w-full overflow-hidden space-y-2 bg-blue-900 py-3">
+  <p className="animate-scrollLeft whitespace-nowrap text-lg md:text-xl font-semibold tracking-wide text-white/80">
+    ✈️ Air Ticketing &nbsp;&nbsp; • &nbsp;&nbsp; 🏨 Hotel Bookings &nbsp;&nbsp; • &nbsp;&nbsp; 📋 Visa & Passport Assistance &nbsp;&nbsp; • &nbsp;&nbsp; 📦 Customized Holidays
+  </p>
+  <p className="animate-scrollRight whitespace-nowrap text-lg md:text-xl font-semibold tracking-wide text-white/80">
+    🚢 Cruise Packages &nbsp;&nbsp; • &nbsp;&nbsp; 💍 Destination Weddings &nbsp;&nbsp; • &nbsp;&nbsp; 🧳 Family Packages &nbsp;&nbsp; • &nbsp;&nbsp; 🌍 International and Domestic Tours
+  </p>
+</div>
+
 
       {/* Featured Destinations */}
       <section id="destinations" className="py-20 bg-white">
+        
+        
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-4">Popular Destinations</h2>
           <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
