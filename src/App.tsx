@@ -86,7 +86,7 @@ useEffect(() => {
 <li className="relative group px-4 py-2">
   <button className="text-blue font-semibold">Quick Links</button>
 
-  <div className="absolute hidden group-hover:flex group-focus-within:flex flex-col items-start bg-white text-black p-6 shadow-xl mt-3 min-w-[300px] max-w-xs z-50 rounded-xl space-y-4 transition-all duration-200">
+<div className="absolute right-0 hidden group-hover:flex group-focus-within:flex flex-col items-start bg-white text-black p-6 shadow-xl mt-3 min-w-[300px] max-w-xs z-50 rounded-xl space-y-4 transition-all duration-200">
     {!isAuthenticated ? (
       <>
         <h3 className="text-lg font-bold text-gray-800">Member Login</h3>
