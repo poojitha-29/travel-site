@@ -13,6 +13,34 @@ function App() {
     travelers: ''
   });
 
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+const [username, setUsername] = useState('');
+const [password, setPassword] = useState('');
+const [loginError, setLoginError] = useState('');
+
+useEffect(() => {
+  const storedAuth = localStorage.getItem('isAuthenticated');
+  if (storedAuth === 'true') {
+    setIsAuthenticated(true);
+  }
+}, []);
+
+const handleLogin = (e) => {
+  e.preventDefault();
+  if (username === 'admin' && password === 'password') {
+    setIsAuthenticated(true);
+    localStorage.setItem('isAuthenticated', 'true');
+    setLoginError('');
+  } else {
+    setLoginError('Invalid username or password');
+  }
+};
+
+const handleLogout = () => {
+  setIsAuthenticated(false);
+  localStorage.removeItem('isAuthenticated');
+};
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     // In a real app, this would search through available destinations
@@ -55,40 +83,85 @@ useEffect(() => {
                 <li><a href="#about" className="text-blue-900 hover:text-blue-700 font-medium">About</a></li>
                 <li><a href="#contact" className="text-blue-900 hover:text-blue-700 font-medium">Contact</a></li>
                 <li>
-<div className="relative text-blue-900 font-medium">
-  <button
-    onClick={() => {
-      const el = document.getElementById('quickLinksMenu');
-      if (el) el.classList.toggle('hidden');
-    }}
-    className="hover:text-blue-700 focus:outline-none"
-  >
-    Quick Links 🔒
-  </button>
+<li className="relative group px-4 py-2">
+  <button className="text-blue font-semibold">Quick Links</button>
 
-  <div id="quickLinksMenu" className="mt-2 hidden">
-    <div>
-      <a
-        href="https://preview--flight-horizon-reminders.lovable.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block hover:text-blue-700"
-      >
-        Flight Reminder App
-      </a>
-    </div>
-    <div>
-      <a
-        href="https://sangeethaholidayspvtltd.netlify.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block hover:text-blue-700"
-      >
-        Specially Curated for Starhealth
-      </a>
-    </div>
+  <div className="absolute hidden group-hover:flex group-focus-within:flex flex-col items-start bg-white text-black p-6 shadow-xl mt-3 min-w-[300px] max-w-xs z-50 rounded-xl space-y-4 transition-all duration-200">
+    {!isAuthenticated ? (
+      <>
+        <h3 className="text-lg font-bold text-gray-800">Member Login</h3>
+        <form onSubmit={handleLogin} className="w-full space-y-4">
+          <div>
+            <label className="block text-sm font-medium">Username</label>
+            <input
+              type="text"
+              placeholder="Enter username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Password</label>
+            <input
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
+              required
+            />
+          </div>
+          {loginError && (
+            <p className="text-red-500 text-sm">{loginError}</p>
+          )}
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-all"
+          >
+            Login
+          </button>
+        </form>
+      </>
+    ) : (
+      <div className="space-y-3">
+         <a
+          href="https://poojitha-29.github.io/trip-packet-pdf-gen/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block hover:underline"
+        >
+          SHPL Itinerary Generator 
+        </a>
+        <a
+          href="https://preview--flight-horizon-reminders.lovable.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block hover:underline"
+        >
+          Flight Reminder App
+        </a>
+        <a
+          href="https://sangeethaholidayspvtltd.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block hover:underline"
+        >
+          Starhealth Specials
+        </a>
+        <button
+          onClick={handleLogout}
+          className="text-red-600 hover:underline font-medium"
+        >
+          Logout
+        </button>
+      </div>
+    )}
   </div>
-</div>
+</li>
+
+
 
 
 
@@ -118,14 +191,7 @@ useEffect(() => {
               <li><a href="#about" className="block px-4 py-3 text-blue-900 hover:bg-blue-50">About</a></li>
               <li><a href="#contact" className="block px-4 py-3 text-blue-900 hover:bg-blue-50">Contact</a></li>
               <li>
-  <a
-    href="https://preview--flight-horizon-reminders.lovable.app"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="block px-4 py-3 text-blue-900 hover:bg-blue-50"
-  >
-    Quick Links 🔒
-  </a>
+ 
 </li>
 
             </ul>
